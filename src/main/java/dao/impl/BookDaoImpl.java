@@ -2,6 +2,7 @@ package dao.impl;
 
 import dao.BookDao;
 import entity.Book;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -12,6 +13,7 @@ public class BookDaoImpl implements BookDao {
     public boolean save(Book book, Session session) {
         int result = (int) session.save(book);
         return result>0;
+
     }
 
     @Override
@@ -33,6 +35,7 @@ public class BookDaoImpl implements BookDao {
         String hql = "FROM Book WHERE publicationYear>2010";
         Query<Book> query = session.createQuery(hql, Book.class);
         return query.list();
+
     }
 
     @Override
@@ -44,14 +47,23 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public double getAveragePrice(Session session) {
-        String hql="SELECT AVG(price) FROM Book ";
-        Query<Double> query = session.createQuery(hql, Double.class);
-        return query.list().get(0);
+    public double getAveragePrice(Session session) throws HibernateException {
+        double averagePrice = 0.0;
+        try {
+            String hql = "SELECT AVG(price) FROM Book";
+            Query<Double> query = session.createQuery(hql, Double.class);
+            List<Double> result = query.list();
+            if (result != null && !result.isEmpty() && result.get(0) != null) {
+                averagePrice = result.get(0);
+            }
+        } catch (HibernateException e) {
+            throw e;
+        }
+        return averagePrice;
     }
 
     @Override
-    public List<Book> filterByCountry(Session session, String country) {
+    public List<Book> filterByCountry(Session session,String country) {
         String hql="SELECT b FROM Book b JOIN b.author a WHERE a.country=:value ";
         Query<Book> query = session.createQuery(hql, Book.class);
         query.setParameter("value", country);

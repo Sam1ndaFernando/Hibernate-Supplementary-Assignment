@@ -11,4 +11,5 @@ public interface AuthorDao {
     public boolean  delete(int value, Session session);
     public Author search(int id, Session session);
     public List<Object[]> getCounts(Session session);
+    public  List<Author> getAuthorsMoreThanAverageBooks(Session session);
 }

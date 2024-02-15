@@ -18,9 +18,8 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     String name;
-
     @OneToMany(mappedBy = "author",cascade = CascadeType.ALL)
     private List<Book> books;
-
     String country;
+
 }

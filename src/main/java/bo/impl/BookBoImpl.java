@@ -17,6 +17,7 @@ public class BookBoImpl implements BookBo {
     BookDao bookDao=new BookDaoImpl();
     @Override
     public boolean saveBook(BookDto bookDto) {
+
         List<Book> books=new ArrayList<>();
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         Transaction transaction = session.beginTransaction();
@@ -24,6 +25,8 @@ public class BookBoImpl implements BookBo {
         transaction.commit();
         session.close();
         return saved;
+
+
     }
 
     @Override
@@ -71,6 +74,7 @@ public class BookBoImpl implements BookBo {
         transaction.commit();
         session.close();
         return increased;
+
     }
 
     @Override
@@ -81,6 +85,7 @@ public class BookBoImpl implements BookBo {
         transaction.commit();
         session.close();
         return averagePrice;
+
     }
 
     @Override

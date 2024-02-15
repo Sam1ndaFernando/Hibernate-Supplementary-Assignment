@@ -16,12 +16,9 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
-    Author author;
-
-    @JoinColumn(name = "author_id")
+    @ManyToOne Author author;
+    @JoinColumn (name = "author_id")
     private String title;
-
     private int publicationYear;
     private double price;
 }
