@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #F2EFE5;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainFormController">
+   <children>
+      <Rectangle arcHeight="35.0" arcWidth="40.0" fill="#dff0ff" height="724.0" layoutX="21.0" layoutY="39.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="560.0" />
+      <Rectangle arcHeight="35.0" arcWidth="40.0" fill="#dff0ff" height="724.0" layoutX="646.0" layoutY="39.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="537.0" />
+      <TableView fx:id="tableAuthor" layoutX="31.0" layoutY="543.0" prefHeight="200.0" prefWidth="525.0">
+        <columns>
+          <TableColumn fx:id="colAuthorId" prefWidth="105.0" text="ID" />
+          <TableColumn fx:id="colAuthorName" prefWidth="161.0" text="Name" />
+            <TableColumn fx:id="colCountry" prefWidth="116.0" text="Country" />
+            <TableColumn fx:id="colCount" prefWidth="141.0" text="Count" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tableBooks" layoutX="664.0" layoutY="543.0" prefHeight="200.0" prefWidth="497.0">
+        <columns>
+          <TableColumn fx:id="colBookId" prefWidth="101.0" text="ID" />
+          <TableColumn fx:id="colBookName" prefWidth="120.0" text="Name" />
+            <TableColumn fx:id="colBookYear" prefWidth="126.0" text="Year" />
+            <TableColumn fx:id="colBookPrice" prefWidth="149.0" text="Price" />
+        </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="31.0" layoutY="61.0" prefHeight="18.0" prefWidth="150.0" text="Author">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="1002.0" layoutY="58.0" prefHeight="18.0" prefWidth="150.0" text="Books">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtAuthorName" layoutX="33.0" layoutY="156.0" prefHeight="25.0" prefWidth="317.0" promptText="Enter name" />
+      <JFXComboBox fx:id="comboBooks" layoutX="676.0" layoutY="483.0" onAction="#ComboBookOnAction" prefHeight="26.0" prefWidth="139.0" promptText=" BOOK ID" />
+      <JFXComboBox fx:id="comboAuthors" layoutX="38.0" layoutY="350.0" onAction="#comboAuthorOnAction" prefHeight="26.0" prefWidth="139.0" promptText="Author ID" />
+      <TextField fx:id="txtBookName" layoutX="667.0" layoutY="152.0" prefHeight="25.0" prefWidth="335.0" promptText="Enter name" />
+      <TextField fx:id="txtBookYear" layoutX="667.0" layoutY="193.0" prefHeight="25.0" prefWidth="335.0" promptText="Enter Year" />
+      <TextField fx:id="txtBookPrice" layoutX="667.0" layoutY="232.0" prefHeight="25.0" prefWidth="335.0" promptText="Enter Price" />
+      <Label layoutX="671.0" layoutY="420.0" prefHeight="18.0" prefWidth="150.0" text="Average price Today" />
+      <Label fx:id="labelPrice" layoutX="672.0" layoutY="447.0" prefHeight="26.0" prefWidth="150.0" />
+      <Button fx:id="countBtn" layoutX="250.0" layoutY="491.0" mnemonicParsing="false" onAction="#countButtonOnAction" prefHeight="26.0" prefWidth="182.0" text="View Book count with authors" />
+      <Button fx:id="saveAuthorBtn" layoutX="39.0" layoutY="491.0" mnemonicParsing="false" onAction="#saveAuthorBtnOnAction" prefHeight="26.0" prefWidth="91.0" text="Save Author" />
+      <Button fx:id="deleteAuthorBtn" layoutX="147.0" layoutY="491.0" mnemonicParsing="false" onAction="#deleteAuthorBtnOnAction" prefHeight="26.0" prefWidth="91.0" text="delete author" />
+      <Button fx:id="saveBookBtn" layoutX="1042.0" layoutY="482.0" mnemonicParsing="false" onAction="#saveBookBtnOnAction" prefHeight="26.0" prefWidth="91.0" text="Save book" />
+      <Button fx:id="searchByCountryBtn" layoutX="841.0" layoutY="353.0" mnemonicParsing="false" onAction="#searchByCountryButtonOnAction" prefHeight="26.0" prefWidth="150.0" text="search books By Country" />
+      <Button fx:id="increase" layoutX="216.0" layoutY="352.0" mnemonicParsing="false" onAction="#increaseButtonOnAction" prefHeight="26.0" prefWidth="182.0" text="increase price of  books" />
+      <Button fx:id="viewAuthorsBtn" layoutX="38.0" layoutY="390.0" mnemonicParsing="false" onAction="#viewAuthorsBtnOnAction" prefHeight="26.0" prefWidth="139.0" text="view Authors" />
+      <TextField fx:id="txtAuthorCountry" layoutX="33.0" layoutY="206.0" prefHeight="25.0" prefWidth="317.0" promptText="Enter country" />
+      <Button fx:id="after2010Btn" layoutX="872.0" layoutY="482.0" mnemonicParsing="false" onAction="#after2010BtnOnAction" prefHeight="26.0" prefWidth="150.0" text="View books After 2010" />
+      <Label layoutX="671.0" layoutY="309.0" prefHeight="26.0" prefWidth="304.0" text="select a authorID  in author side to save a book!!!">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="31.0" layoutY="321.0" prefHeight="26.0" prefWidth="304.0" text=" select a authorID  in author side to increase price!!!">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></Label>
+      <JFXComboBox fx:id="comboCountry" layoutX="671.0" layoutY="353.0" prefHeight="26.0" prefWidth="150.0" promptText="Author's Country" />
+      <Separator layoutX="594.0" layoutY="84.0" orientation="VERTICAL" prefHeight="653.0" prefWidth="35.0" />
+   </children>
+</AnchorPane>
